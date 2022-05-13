@@ -9,6 +9,6 @@ public class CafeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cafe);
+        setContentView(R.layout.activity_map);
     }
 }
