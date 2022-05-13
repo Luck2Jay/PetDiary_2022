@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class StartActivity extends AppCompatActivity {
 
     Button btn_login;
@@ -25,7 +28,6 @@ public class StartActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
-//                addPostList();
 
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
@@ -42,10 +44,6 @@ public class StartActivity extends AppCompatActivity {
         });
     }
 
-/*
-    public void addPostList( ){
-        databaseReference.child("homework").setValue("Test");
 
-    }
-*/
+
 }

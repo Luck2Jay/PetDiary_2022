@@ -7,11 +7,14 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
-  //  private FirebaseDatabase database = FirebaseDatabase.getInstance();
-   // private DatabaseReference databaseReference = database.getReference();
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference databaseReference = database.getReference();
 
     Button btn;
     EditText edit1, edit2;
@@ -35,6 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void addUser(String id, String pw) {
         User user = new User(id,pw);
-   //     databaseReference.child("zoo").child(id).setValue(user);
+      databaseReference.child("zoo").child(id).setValue(user); // 추후 수정 필요1!!!!!
     }
 }
