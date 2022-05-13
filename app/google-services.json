@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "602857273926",
+    "project_id": "petdiary-b535b",
+    "storage_bucket": "petdiary-b535b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602857273926:android:33072859ba51260d966847",
+        "android_client_info": {
+          "package_name": "com.example.petdiary_2022"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602857273926-4jq6obspbtiv65u3ps1d2mkod7tpqk39.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.petdiary_2022",
+            "certificate_hash": "e28a2a6243060d2251939d1463f2caf062abf097"
+          }
+        },
+        {
+          "client_id": "602857273926-ocmiq7l0v2evss0re050p8rhu3omg9tu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA51h8r4qKAhJfUmec6tD49lVHQrxfINRU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602857273926-ocmiq7l0v2evss0re050p8rhu3omg9tu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
