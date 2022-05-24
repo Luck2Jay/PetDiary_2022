@@ -12,3 +12,4 @@
         android:name="com.naver.maps.map.MapFragment" />
 
 </LinearLayout>
+ 
