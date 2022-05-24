@@ -44,6 +44,7 @@
         <activity android:name=".StartActivity"/>
         <activity android:name=".RegisterActivity"/>
 
+
     </application>
 
 </manifest>

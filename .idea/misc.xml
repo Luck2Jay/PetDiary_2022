@@ -10,8 +10,11 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.29074074074074074" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_nametag.xml" value="0.315625" />
         <entry key="app/src/main/res/layout/activity_record.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_scehck.xml" value="0.4635416666666667" />
+        <entry key="app/src/main/res/layout/activity_scheck.xml" value="0.42083333333333334" />
         <entry key="app/src/main/res/layout/fragement_layout.xml" value="0.5432291666666667" />
         <entry key="app/src/main/res/layout/map_fragment_activity.xml" value="0.3648148148148148" />
       </map>

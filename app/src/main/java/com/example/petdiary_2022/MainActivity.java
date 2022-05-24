@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
+// 시작화면이다. 강아지 사진 나오는
 public class MainActivity extends AppCompatActivity {
 
     Button btn_login;

@@ -27,8 +27,8 @@ public class HomeActivity extends AppCompatActivity {
 
         BtnRecord = findViewById(R.id.BtnRecord);
         BtnBoard = findViewById(R.id.BtnBoard);
-        BtnStart = findViewById(R.id.BtnStart);
-        BtnNameTag = findViewById(R.id.Btnnametag);
+        BtnStart = findViewById(R.id.BtnSanStart);
+        BtnNameTag = findViewById(R.id.BtnSCheck);
         BtnLost = findViewById(R.id.BtnLost);
         BtnHospital = findViewById(R.id.BtnHospital);
         BtnMyPage = findViewById(R.id.BtnMyPage);
