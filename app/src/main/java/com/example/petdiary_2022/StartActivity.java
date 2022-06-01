@@ -16,7 +16,7 @@ public class StartActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scehck);
+//        setContentView(R.layout.activity_start_san);
 
 
 

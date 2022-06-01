@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
 
     Button btn_login;
     Button btn_register;
+    EditText et_id,et_pw;
+
+
     // Write a message to the database
 
     @Override
@@ -22,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
         btn_login = findViewById(R.id.BtnLogin);
         btn_register = findViewById(R.id.BtnRegister);
-
+        et_id = findViewById(R.id.EditID);
+        et_pw = findViewById(R.id.EditPW);
 
         btn_login.setOnClickListener(new Button.OnClickListener(){
             @Override

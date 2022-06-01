@@ -38,6 +38,6 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void addUser(String id, String pw) {
         User user = new User(id,pw);
-      databaseReference.child("zoo").child(id).setValue(user); // 추후 수정 필요1!!!!!
+      databaseReference.child(id).child("회원정보").setValue(user); // 추후 수정 필요1!!!!!
     }
 }

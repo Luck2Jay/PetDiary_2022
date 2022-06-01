@@ -33,16 +33,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".CafeActivity"/>
+        <activity android:name=".OverlayMapActivity"/>
         <activity android:name=".BoardActivity"/>
         <activity android:name=".HomeActivity"/>
         <activity android:name=".HospitalActivity"/>
         <activity android:name=".LostActivity"/>
         <activity android:name=".MyPageActivity"/>
-        <activity android:name=".NameTagActivity"/>
+        <activity android:name=".GpsRecordActivity"/>
         <activity android:name=".RecordActivity"/>
         <activity android:name=".StartActivity"/>
         <activity android:name=".RegisterActivity"/>
+        <activity android:name=".PathChoiceActivity"/>
 
 
     </application>

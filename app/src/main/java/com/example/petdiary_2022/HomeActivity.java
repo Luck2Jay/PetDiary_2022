@@ -54,18 +54,12 @@ public class HomeActivity extends AppCompatActivity {
         BtnStart.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), StartActivity.class);
+                Intent intent = new Intent(getApplicationContext(), GpsRecordActivity.class);
                 startActivity(intent);
             }
         });
 
-        BtnNameTag.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), NameTagActivity.class);
-                startActivity(intent);
-            }
-        });
+
 
         BtnLost.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -89,7 +83,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnCafe.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(),CafeActivity.class);
+                Intent intent = new Intent(getApplicationContext(),PathChoiceActivity.class);
                 startActivity(intent);
             }
         });

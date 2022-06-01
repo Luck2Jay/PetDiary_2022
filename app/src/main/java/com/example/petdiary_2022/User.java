@@ -4,8 +4,6 @@ public class User {
 
     String id;
     String pw;
-  //  static String job = "Post";
-  //  static String name = "김명지";
 
     public User(){}
 
