@@ -44,6 +44,8 @@
         <activity android:name=".StartActivity"/>
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".PathChoiceActivity"/>
+        <activity android:name=".BoardReadActivity"/>
+        <activity android:name=".BoardWriteActivity"/>
 
 
     </application>
