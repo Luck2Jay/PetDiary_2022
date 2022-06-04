@@ -71,7 +71,7 @@
                 android:layout_height="90dp"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
-                android:src="@drawable/photo" />
+                android:src="@drawable/san" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -97,19 +97,19 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/BtnSCheck"
+                android:id="@+id/BtnDiary"
                 android:layout_width="90dp"
-                android:layout_height="90dp"
+                android:layout_height="87dp"
+                android:background="@android:color/transparent"
                 android:contentDescription="calendar"
                 android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                android:src="@drawable/calendar" />
+                android:src="@drawable/diary" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="미정"
+                android:text="다이어리"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
@@ -128,13 +128,13 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="invest"
                 android:scaleType="fitCenter"
-                android:src="@drawable/invest" />
+                android:src="@drawable/photo" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="분실"
+                android:text="앨범"
                 android:textColor="#000000"
                 android:textSize="20dp" />
 
@@ -150,10 +150,10 @@
                 android:id="@+id/BtnHospital"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
+                android:background="@android:color/transparent"
                 android:contentDescription="job"
                 android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                android:src="@drawable/job" />
+                android:src="@drawable/map" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -181,10 +181,10 @@
                 android:id="@+id/BtnCafe"
                 android:layout_width="90dp"
                 android:layout_height="90dp"
+                android:background="@android:color/transparent"
                 android:contentDescription="volunteer"
                 android:scaleType="fitCenter"
-                android:background="@android:color/transparent"
-                android:src="@drawable/market" />
+                android:src="@drawable/calendar" />
 
             <TextView
                 android:layout_width="wrap_content"

@@ -17,7 +17,7 @@ public class HomeActivity extends AppCompatActivity {
     ImageButton BtnRecord;
     ImageButton BtnBoard;
     ImageButton BtnStart;
-    ImageButton BtnNameTag;
+    ImageButton BtnDiary;
     ImageButton BtnLost;
     ImageButton BtnHospital;
     ImageButton BtnMyPage;
@@ -32,7 +32,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnRecord = findViewById(R.id.BtnRecord);
         BtnBoard = findViewById(R.id.BtnBoard);
         BtnStart = findViewById(R.id.BtnSanStart);
-        BtnNameTag = findViewById(R.id.BtnSCheck);
+        BtnDiary = findViewById(R.id.BtnDiary);
         BtnLost = findViewById(R.id.BtnLost);
         BtnHospital = findViewById(R.id.BtnHospital);
         BtnMyPage = findViewById(R.id.BtnMyPage);
@@ -47,6 +47,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        BtnDiary.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(),DiaryActivity.class);
+                startActivity(intent);
+            }
+        });
+
         BtnBoard.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,6 +62,7 @@ public class HomeActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
 
         BtnStart.setOnClickListener(new Button.OnClickListener() {
             @Override
@@ -65,13 +74,13 @@ public class HomeActivity extends AppCompatActivity {
 
 
 
-        BtnLost.setOnClickListener(new Button.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), LostActivity.class);
-                startActivity(intent);
-            }
-        });
+//        BtnLost.setOnClickListener(new Button.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), LostActivity.class);
+//                startActivity(intent);
+//            }
+//        });
 
         BtnHospital.setOnClickListener(new Button.OnClickListener() {
             @Override
