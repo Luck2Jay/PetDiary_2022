@@ -1,5 +1,7 @@
 package com.example.petdiary_2022;
 
+import static com.example.petdiary_2022.MainActivity.user;
+
 import android.app.Activity;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Intent;

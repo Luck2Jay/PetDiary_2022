@@ -1,9 +1,13 @@
 package com.example.petdiary_2022;
 
+import static com.example.petdiary_2022.MainActivity.user;
+
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -15,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.naver.maps.geometry.LatLng;
+import com.naver.maps.map.CameraPosition;
 import com.naver.maps.map.MapView;
 import com.naver.maps.map.NaverMap;
 import com.naver.maps.map.OnMapReadyCallback;
@@ -23,6 +28,7 @@ import com.naver.maps.map.overlay.PathOverlay;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 
@@ -32,14 +38,18 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
     private MapView mapView;
     private static NaverMap naverMap;
 
-    private LatLng myLatLng = new LatLng(37.3399, 126.733);
-    private List<LatLng> firbase_latlng = new ArrayList<>();
+    private LatLng tempLatLng ;
+    private List<LatLng> firbase_latlng = new ArrayList<>(); // 산책한 경로의 좌표열을 저장할 리스트
+    List<String> g_time = new ArrayList<>(); // 산책 시작, 종료 위한 것
+    List<String> g_speed = new ArrayList<>(); // 산책 평균 속도를 구하기 위한 것
 
     Path path;
-    int s_time; // 산책 시작 시간
-    int e_time; // 산책 종료 시간
-    int date; // 산책 날짜
-    float speed; // 산책 속도
+    String s_time; // 산책 시작 시간
+    String e_time; // 산책 종료 시간
+    String g_date; // 산책 날짜
+    double speed; // 산책 속도
+
+    TextView start_tv, end_tv, date_tv, speed_tv;
 
     // 파이어베이스 연결 위해 사용
     private FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -59,18 +69,65 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
         Intent intent = getIntent();
         path = (Path) intent.getSerializableExtra("date");
 
+        start_tv = findViewById(R.id.p_start);
+        end_tv = findViewById(R.id.p_end);
+        date_tv = findViewById(R.id.p_date);
+        speed_tv = findViewById(R.id.p_speed);
+
+
         LatLng temp_lat = new LatLng(0, 0); // 좌표 계산에 잠시 사용할 임시용
-
-
         for(int i=0;i<path.list.size();i++){
             String temp = path.list.get(i);
             String tmp[] = temp.split(",");
             if((tmp[3]==null)) continue;
             else {
                 temp_lat = new LatLng(Latitude2Decimal(tmp[3], tmp[4]), Longitude2Decimal(tmp[5], tmp[6]));
+                if(i==1){tempLatLng = temp_lat;}
                 firbase_latlng.add(temp_lat);
+                g_time.add(tmp[1]);
+                g_speed.add(tmp[7]);
+                g_date = tmp[9];
             }
         }
+
+        //날짜 설정
+        String[] date = new String[3];
+        date[0] = g_date.substring(0,2); // 월
+        date[1] = g_date.substring(2,4); // 일
+        date[2] = g_date.substring(g_date.length()-2,g_date.length()); // 년
+        String dateTv = "20"+date[2]+"년 " + date[1]+"월 " + date[0] + "일";
+        date_tv.setText(dateTv);
+
+        // 시작 시간 설정
+        s_time = g_time.get(0); // 첫 시간
+        String timeTemp = s_time.substring(0,6);
+        String hour[] = new String[4];
+        hour[0] = timeTemp.substring(0,2); // 시
+        hour[1] = timeTemp.substring(2,4); // 분
+        String sttv = hour[0] +"시 " + hour[1] + "분";
+        start_tv.setText(sttv);
+
+        // 끝나는 시간 설정
+        e_time = g_time.get(g_time.size()-1);
+
+        String timeTemp2 = e_time.substring(0,6);
+        String hour2[] = new String[4];
+        hour2[0] = timeTemp2.substring(0,2); // 시
+        hour2[1] = timeTemp2.substring(2,4); // 분
+        String sttv2 = hour2[0] +"시 " + hour2[1] + "분";
+        end_tv.setText(sttv2);
+
+        //평균 속도
+        double temp = 0;
+        for(int i = 0; i < g_speed.size(); i++){
+            double tmp_speed = Double.parseDouble(g_speed.get(i));
+            temp += tmp_speed;
+        }
+        speed = temp/g_speed.size();
+        String sptv = String.format("%.2f",1.8*speed); // 속도를 소수점 아래 3자리까지
+        sptv = sptv + "km/h";
+        speed_tv.setText(sptv);
+
 
     }
 
@@ -78,6 +135,10 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
     @Override
     public void onMapReady(@NonNull NaverMap naverMap) {
         this.naverMap = naverMap;
+
+
+        CameraPosition cameraPosition = new CameraPosition(tempLatLng, 18);
+        naverMap.setCameraPosition(cameraPosition);
 
         ArrowheadPathOverlay arrowheadPath = new ArrowheadPathOverlay();
         arrowheadPath.setCoords(firbase_latlng);
@@ -87,7 +148,6 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
         arrowheadPath.setOutlineColor(Color.BLUE);
 
         arrowheadPath.setMap(naverMap);
-
 //
 //        PathOverlay path = new PathOverlay();
 //        path.setCoords(firbase_latlng);
@@ -95,8 +155,6 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
 //        path.setColor(Color.GREEN);
 //        path.setMap(naverMap);
 
-//        CameraPosition cameraPosition = new CameraPosition(myLatLng, 16);
-//        naverMap.setCameraPosition(cameraPosition);
     }
 
 

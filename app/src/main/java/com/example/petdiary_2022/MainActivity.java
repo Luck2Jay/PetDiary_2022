@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     Button btn_register;
     EditText et_id,et_pw;
 
+    static User user;
 
     // Write a message to the database
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         btn_login.setOnClickListener(new Button.OnClickListener(){
             @Override
             public void onClick(View view) {
+                user = new User(et_id.getText().toString(),et_pw.getText().toString());
                 Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
                 startActivity(intent);
             }
