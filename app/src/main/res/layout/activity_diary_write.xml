@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/diary_name_edit"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:hint="제목 입력"
+        android:inputType="text"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/diary_et"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="글 작성"
+        android:inputType="text"
+        android:singleLine="false" />
+
+    <Button
+        android:id="@+id/btn_diary_enroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:text="다이어리 등록"
+        android:textSize="24dp" />
+
+</LinearLayout>
