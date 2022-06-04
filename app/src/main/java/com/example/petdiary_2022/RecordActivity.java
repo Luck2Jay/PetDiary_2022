@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.UUID;
 
-// 산책 기록하는 코드
+// 이름표 기록
 public class RecordActivity extends AppCompatActivity {
 
     String TAG = "RecordActivity";

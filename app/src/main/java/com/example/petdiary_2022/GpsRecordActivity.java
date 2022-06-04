@@ -32,7 +32,7 @@ public class GpsRecordActivity extends AppCompatActivity {
 
     private BluetoothSPP bt;
     List<String> list;
-    EditText et,id;
+    EditText et;
     Button stop;
     int i=0;
     String num;
@@ -48,7 +48,7 @@ public class GpsRecordActivity extends AppCompatActivity {
             bt = new BluetoothSPP(this); //Initializing
             et = findViewById(R.id.et_san);
             stop = findViewById(R.id.btn_stop);
-            id = findViewById(R.id.et_id_input);
+
 
             if (!bt.isBluetoothAvailable()) { //블루투스 사용 불가라면
                 // 사용불가라고 토스트 띄워줌
@@ -67,7 +67,7 @@ public class GpsRecordActivity extends AppCompatActivity {
                 public void onDataReceived(byte[] data, String message) {
                         num = Integer.toString(i);
 //                    Toast.makeText(GpsRecordActivity.this, message, Toast.LENGTH_SHORT).show(); // 토스트로 데이터 띄움
-                        path.id = id.getText().toString();
+
                         path.name = et.getText().toString();
                         path.list.add(message);
                     i++;
@@ -179,7 +179,7 @@ public class GpsRecordActivity extends AppCompatActivity {
         }
 
     public void addGps(Path path) {
-        databaseReference.child(path.id).child("GPS").child(path.name).setValue(path); // 산책명 > 번호 > GPS
+        databaseReference.child(user.id).child("GPS").child(path.name).setValue(path); // 산책명 > 번호 > GPS
     }
 
 }

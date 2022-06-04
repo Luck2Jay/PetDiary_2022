@@ -79,7 +79,10 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
         for(int i=0;i<path.list.size();i++){
             String temp = path.list.get(i);
             String tmp[] = temp.split(",");
-            if((tmp[3]==null)) continue;
+            if((tmp[3]==null)) {
+                Toast.makeText(OverlayMapActivity.this, "좌표 값 불량", Toast.LENGTH_SHORT).show(); // 토스트로 데이터 띄움
+                continue;
+            }
             else {
                 temp_lat = new LatLng(Latitude2Decimal(tmp[3], tmp[4]), Longitude2Decimal(tmp[5], tmp[6]));
                 if(i==1){tempLatLng = temp_lat;}
@@ -90,22 +93,52 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
             }
         }
 
-        //날짜 설정
-        String[] date = new String[3];
-        date[0] = g_date.substring(0,2); // 월
-        date[1] = g_date.substring(2,4); // 일
-        date[2] = g_date.substring(g_date.length()-2,g_date.length()); // 년
-        String dateTv = "20"+date[2]+"년 " + date[1]+"월 " + date[0] + "일";
-        date_tv.setText(dateTv);
+
 
         // 시작 시간 설정
         s_time = g_time.get(0); // 첫 시간
         String timeTemp = s_time.substring(0,6);
         String hour[] = new String[4];
         hour[0] = timeTemp.substring(0,2); // 시
+        int temp_sh = Integer.parseInt(hour[0])+9;
+        if(temp_sh>24) temp_sh = temp_sh - 24;
+        hour[0] = Integer.toString(temp_sh);
         hour[1] = timeTemp.substring(2,4); // 분
         String sttv = hour[0] +"시 " + hour[1] + "분";
         start_tv.setText(sttv);
+
+        //날짜 설정, 윤년과 연도는 생각하지 않음, 우선 일과 월만 따짐
+        String[] date = new String[3];
+        date[0] = g_date.substring(0,2); // 월
+        date[1] = g_date.substring(2,4); // 일
+        int tmp_mon = Integer.parseInt(date[0]);
+        int tmp_date = Integer.parseInt(date[1]);
+
+        if(temp_sh>24){
+            ++tmp_date;
+
+            if(tmp_date==32){ // +9시간 했는 데 날짜가 32가 되면 달을 바꿔준다
+                tmp_date =1;
+                ++tmp_mon;
+            }else if(tmp_date==31||(date[0].equals("04"))||(date[0].equals("06"))||(date[0].equals("09"))||(date[0].equals("11"))
+            ){
+                 tmp_mon = Integer.parseInt(date[0]);
+                tmp_date =1;
+                ++tmp_mon;
+            }else if((tmp_date==29)){ //2월일 경우
+               tmp_mon = Integer.parseInt(date[0]);
+                tmp_date =1;
+                ++tmp_mon;
+            }
+
+        }
+
+        date[0] =Integer.toString(tmp_mon);
+        date[1] = Integer.toString(tmp_date); // 만약 +9시간 했을 때 새벽이 되면 날짜를 +1일해줌
+
+        date[2] = g_date.substring(g_date.length()-2,g_date.length()); // 년
+        String dateTv = "20"+date[2]+"년 " + date[1]+"월 " + date[0] + "일";
+        date_tv.setText(dateTv);
 
         // 끝나는 시간 설정
         e_time = g_time.get(g_time.size()-1);
@@ -113,6 +146,9 @@ public class OverlayMapActivity extends AppCompatActivity implements OnMapReadyC
         String timeTemp2 = e_time.substring(0,6);
         String hour2[] = new String[4];
         hour2[0] = timeTemp2.substring(0,2); // 시
+        int temp_eh = Integer.parseInt(hour2[0])+9;
+        if(temp_eh>24) temp_eh = temp_eh - 24;
+        hour2[0] =Integer.toString(temp_eh); // 시
         hour2[1] = timeTemp2.substring(2,4); // 분
         String sttv2 = hour2[0] +"시 " + hour2[1] + "분";
         end_tv.setText(sttv2);
