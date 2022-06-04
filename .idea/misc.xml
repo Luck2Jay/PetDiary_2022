@@ -16,7 +16,7 @@
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2916666666666667" />
         <entry key="app/src/main/res/layout/activity_hosp_cafe.xml" value="0.3171875" />
         <entry key="app/src/main/res/layout/activity_lost.xml" value="0.6942708333333333" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_map.xml" value="0.29074074074074074" />
         <entry key="app/src/main/res/layout/activity_mypage.xml" value="0.335" />
         <entry key="app/src/main/res/layout/activity_nametag.xml" value="0.315625" />
@@ -32,7 +32,7 @@
         <entry key="app/src/main/res/layout/activity_scehck.xml" value="0.4635416666666667" />
         <entry key="app/src/main/res/layout/activity_scheck.xml" value="0.42083333333333334" />
         <entry key="app/src/main/res/layout/activity_start_san.xml" value="0.3848958333333333" />
-        <entry key="app/src/main/res/layout/activity_write.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/activity_write.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_write_item.xml" value="0.375" />
         <entry key="app/src/main/res/layout/fragement_layout.xml" value="0.5432291666666667" />
         <entry key="app/src/main/res/layout/map_fragment_activity.xml" value="0.3648148148148148" />
