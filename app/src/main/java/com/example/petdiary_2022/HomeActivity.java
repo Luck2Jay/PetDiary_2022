@@ -16,9 +16,9 @@ public class HomeActivity extends AppCompatActivity {
 
     ImageButton BtnRecord;
     ImageButton BtnBoard;
-    ImageButton BtnStart;
+    ImageButton BtnPhoto;
     ImageButton BtnDiary;
-    ImageButton BtnLost;
+    ImageButton BtnStart;
     ImageButton BtnHospital;
     ImageButton BtnMyPage;
     ImageButton BtnCafe;
@@ -33,7 +33,7 @@ public class HomeActivity extends AppCompatActivity {
         BtnBoard = findViewById(R.id.BtnBoard);
         BtnStart = findViewById(R.id.BtnSanStart);
         BtnDiary = findViewById(R.id.BtnDiary);
-        BtnLost = findViewById(R.id.BtnLost);
+        BtnPhoto = findViewById(R.id.BtnPhoto);
         BtnHospital = findViewById(R.id.BtnHospital);
         BtnMyPage = findViewById(R.id.BtnMyPage);
         BtnCafe = findViewById(R.id.BtnCafe);
@@ -55,6 +55,14 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
+        BtnStart.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), GpsRecordActivity.class);
+                startActivity(intent);
+            }
+        });
+
         BtnBoard.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -64,10 +72,10 @@ public class HomeActivity extends AppCompatActivity {
         });
 
 
-        BtnStart.setOnClickListener(new Button.OnClickListener() {
+        BtnPhoto.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), GpsRecordActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PhotoActivity.class);
                 startActivity(intent);
             }
         });

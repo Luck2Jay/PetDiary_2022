@@ -120,7 +120,7 @@
             android:orientation="vertical">
 
             <ImageButton
-                android:id="@+id/BtnLost"
+                android:id="@+id/BtnPhoto"
                 android:layout_width="86dp"
                 android:layout_height="90dp"
                 android:background="@android:color/transparent"
